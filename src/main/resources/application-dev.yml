@@ -1,0 +1,28 @@
+server:
+  port: 8086
+spring:
+  mvc:
+    view:
+      prefix: /jsp/
+      suffix: .jsp
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/spring_test?charcaterEncoding=utf8
+    username: root
+    password: 
+  jpa:
+    database: MySQL
+    show-sql: true
+    hibernate:
+      naming-strategy: org.hibernate.cfg.DefaultComponentSafeNamingStrategy
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        current_session_context_class: org.springframework.orm.hibernate4.SpringSessionContext
+
+hibernate:
+  connection:
+    CharSet: utf8
+    characterEncoding: utf8
+    useUnicode: true
+
