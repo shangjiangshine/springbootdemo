@@ -20,6 +20,8 @@ public class UserEntity implements Serializable {
     private Integer age;
     @Column(name = "t_address")
     private String address;
+    @Column(name = "t_password")
+    private String password;
 
     public Integer getId() {
         return id;
@@ -51,5 +53,13 @@ public class UserEntity implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

@@ -8,13 +8,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by ShineYoung on 2018/11/13.
  */
 @Controller
+@RequestMapping("/index")
 public class IndexController {
     /**
-     * 访问web/jsp/index.jsp文件
+     * 访问webapp/WEB-INF/jsp/index.jsp文件
      * @return
      */
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String index() {
-        return "index";
+        return "login";
+    }
+
+    /**
+     * 初始化登陆界面
+     * @return
+     */
+    @RequestMapping(value = "/login_view", method = RequestMethod.GET)
+    public String login_view() {
+        return "login";
     }
 }
