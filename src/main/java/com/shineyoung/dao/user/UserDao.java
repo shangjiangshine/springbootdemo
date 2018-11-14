@@ -10,7 +10,7 @@ import java.io.Serializable;
 /**
  * Created by ShineYoung on 2018/11/13.
  */
-public interface UserDao extends JpaRepository<UserEntity, Integer>,
+public interface UserDAO extends JpaRepository<UserEntity, Integer>,
         JpaSpecificationExecutor<UserEntity>,
         Serializable {
 

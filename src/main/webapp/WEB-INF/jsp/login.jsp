@@ -13,7 +13,7 @@
   <body>
         <form method="post" action="/login/login">
           用户名：<input type="text" name="name"/></br>
-          密&npsb码：<input type="password" name="password"/>
+          密&nbsp码：<input type="password" name="password"/>
           <input type="submit" value="登陆">
         </form>
   </body>

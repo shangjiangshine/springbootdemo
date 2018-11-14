@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/index")
 public class IndexController {
     /**
-     * 访问webapp/WEB-INF/jsp/index.jsp文件
+     * 访问webapp/WEB-INF/jsp/login.jsp文件
      * @return
      */
     @RequestMapping(method = RequestMethod.GET)

@@ -1,6 +1,6 @@
 package com.shineyoung.controller.user;
 
-import com.shineyoung.dao.user.UserDao;
+import com.shineyoung.dao.user.UserDAO;
 import com.shineyoung.entity.user.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +16,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserDao userDao;
+    private UserDAO userDAO;
 
     /**
      * 查询用户列表方法
@@ -24,7 +24,7 @@ public class UserController {
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<UserEntity> userEntityList() {
-        return userDao.findAll();
+        return userDAO.findAll();
     }
 
     /**
@@ -34,7 +34,7 @@ public class UserController {
      */
     @RequestMapping(value = "/save", method = RequestMethod.GET)
     public UserEntity save(UserEntity entity) {
-        return userDao.save(entity);
+        return userDAO.save(entity);
     }
 
     /**
@@ -45,7 +45,7 @@ public class UserController {
     @RequestMapping(value = "/delete",method = RequestMethod.GET)
     public List<UserEntity> delete(Integer id)
     {
-        userDao.delete(id);
-        return userDao.findAll();
+        userDAO.delete(id);
+        return userDAO.findAll();
     }
 }
