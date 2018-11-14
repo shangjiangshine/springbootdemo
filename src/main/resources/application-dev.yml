@@ -6,9 +6,11 @@ spring:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
   datasource:
-    url: jdbc:mysql://192.168.2.181:3306/spring_test?charcaterEncoding=utf8
+    url: jdbc:mysql://192.168.142.129:3306/spring_test?charcaterEncoding=utf8
+    #url: jdbc:mysql://192.168.2.181:3306/spring_test?charcaterEncoding=utf8
     username: root
-    password:
+    password: 123456
+    #password:
     #最大活跃数
     maxActive: 20
     #初始化数量
@@ -46,4 +48,8 @@ hibernate:
     CharSet: utf8
     characterEncoding: utf8
     useUnicode: true
+#屏蔽包下面的log不记录到log文件中,off必须加引号
+logging:
+  level:
+    com.shineyoung.controller: 'off'
 
