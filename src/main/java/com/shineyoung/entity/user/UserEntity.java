@@ -1,10 +1,15 @@
 package com.shineyoung.entity.user;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * Created by ShineYoung on 2018/11/13.
+ * 忽略属性字段，由于使用的json包是fastjson，所以使用@JSONField(serialize = false)方式。
+ * 或者在对象对应字段前面加transient，表示该字段不用序列化，即在生成json的时候就不会包含该字段了，如private transient  String name;
+ * 如果是jackson,则使用@JsonIgnore（注意此时引入的类是 com.fasterxml.jackson.annotation.JsonIgnore，如果使用 org.codehaus.jackson.annotate.JsonIgnore 则不能生效）
  */
 @Entity
 @Table(name = "t_user")
@@ -13,6 +18,7 @@ public class UserEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "t_id")
+    @JSONField(serialize = false)
     private Integer id;
     @Column(name = "t_name")
     private String name;
@@ -21,6 +27,7 @@ public class UserEntity implements Serializable {
     @Column(name = "t_address")
     private String address;
     @Column(name = "t_password")
+    @JSONField(serialize = false)
     private String password;
 
     public Integer getId() {

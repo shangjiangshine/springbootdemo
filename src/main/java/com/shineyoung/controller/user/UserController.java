@@ -5,10 +5,16 @@ import com.shineyoung.entity.user.UserEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.print.attribute.standard.PageRanges;
 import java.util.List;
 
 /**
@@ -30,6 +36,30 @@ public class UserController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<UserEntity> userEntityList() {
         return userDAO.findAll();
+    }
+
+    /**
+     * 查询用户列表分页方法
+     * @return
+     */
+    @RequestMapping(value = "/pagedList", method = RequestMethod.GET)
+    public Page<UserEntity> userPagedList( @RequestParam(value = "page", required = false, defaultValue = "0") Integer pageNum,
+                                            @RequestParam(value = "size", required = false, defaultValue = "10") Integer pageSize,
+                                            @RequestParam(value = "sortNumber", required = false, defaultValue = "0") Integer sortNumber
+                                            ) {
+        // 获取排序方向
+        Sort.Direction direction = Sort.Direction.ASC;
+        if(sortNumber == 0) {
+            direction = Sort.Direction.ASC;
+        } else {
+            direction = Sort.Direction.DESC;
+        }
+        // 进行排序的列，设置排序对象
+        Sort sort = new Sort(direction, "id");
+        // pageNumber从0开始，0是第一页
+        PageRequest pageRequest = new PageRequest(pageNum, pageSize, sort);
+        Page<UserEntity> userEntityPage = userDAO.findAll(pageRequest);
+        return userEntityPage;
     }
 
     /**

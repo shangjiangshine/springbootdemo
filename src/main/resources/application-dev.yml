@@ -6,11 +6,11 @@ spring:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
   datasource:
-    #url: jdbc:mysql://192.168.142.129:3306/spring_test?charcaterEncoding=utf8
-    url: jdbc:mysql://192.168.2.181:3306/spring_test?charcaterEncoding=utf8
+    url: jdbc:mysql://192.168.142.129:3306/spring_test?charcaterEncoding=utf8
+    #url: jdbc:mysql://192.168.2.181:3306/spring_test?charcaterEncoding=utf8
     username: root
-    #password: 123456
-    password:
+    password: 123456
+    #password:
     #最大活跃数
     maxActive: 20
     #初始化数量
