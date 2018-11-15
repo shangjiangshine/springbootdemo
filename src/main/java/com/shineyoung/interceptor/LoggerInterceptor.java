@@ -2,7 +2,7 @@ package com.shineyoung.interceptor;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.shineyoung.dao.Log.LoggerDAO;
+import com.shineyoung.dao.log.LoggerDAO;
 import com.shineyoung.entity.log.LoggerEntity;
 import com.shineyoung.util.LoggerUtils;
 import org.springframework.beans.factory.BeanFactory;
